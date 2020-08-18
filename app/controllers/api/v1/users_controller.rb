@@ -1,5 +1,18 @@
 class Api::V1::UsersController < ApplicationController
+    skip_before_action :logged_in?, only: [:create, :index, :show]
+
+    def index
+        users = User.all
+        render :json => users
+    end
+
+    def show
+        user = User.find(params[:id])
+        render :json => user
+    end
+
     def create
+        # byebug
         user = User.new(user_params)
         if user.valid?
             user.save
@@ -12,6 +25,6 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-        params.require(:user).permit(:username, :password)
+        params.permit(:username, :password)
     end
 end
