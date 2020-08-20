@@ -8,7 +8,7 @@ class Api::V1::UsersController < ApplicationController
 
     def show
         user = User.find(params[:id])
-        render :json => user
+        render :json => {user: user, high_score: user.high_score}
     end
 
     def create
@@ -20,6 +20,12 @@ class Api::V1::UsersController < ApplicationController
         else
             render json: {error: "Failed to create the user"}
         end
+    end
+
+    def find
+      user = find_user
+
+      render json: {user: user, high_score: user.high_score.score}
     end
 
     private
