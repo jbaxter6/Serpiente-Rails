@@ -11,7 +11,6 @@ class Api::V1::RecordsController < ApplicationController
     end
 
     user.records.build(record_params)
-    
     message = {success: false}
     if !user
       message[:error] = "User not logged in"
