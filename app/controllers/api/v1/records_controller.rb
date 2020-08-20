@@ -1,4 +1,19 @@
 class Api::V1::RecordsController < ApplicationController
+  skip_before_action :logged_in?, only: [:index]
+
+  def index
+    #only show best 25
+    records = Record.all.order("score DESC").limit(25)
+    scores = records.map do |rec|
+      score = {
+        score: rec.score,
+        user: User.find(rec.user_id).username,
+        date: rec.created_at
+      }
+    end
+    render json: scores
+    
+  end
   def create
     headers = request.headers["Authorization"]
     token = headers.split(" ")[1]
