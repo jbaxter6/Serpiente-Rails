@@ -1,24 +1,40 @@
-# README
+<h1 align="center">Serpient Back-End </h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.1.0-blue.svg?cacheSeconds=2592000" />
+  <a href="https://choosealicense.com/licenses/mit/" target="_blank">
+    <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg" />
+  </a>
+</p>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
 
-* Ruby version
+## Prerequisites
+Before you continue, ensure you have met the following requirements:
 
-* System dependencies
+You have installed the latest version of Ruby.
+Steps to get started:
 
-* Configuration
+### Run 'bundle install' to update gemfile
+```sh
+$ bundle install
+```
+### Next, migrate the database:
+```sh
+$ rails db:migrate
+```
+### Seed the database and start your server
+```sh
+$ rails db:seed
+```
+```sh
+$ rails server
+```
+Now, simply go to signup for a free account!
 
-* Database creation
+Any questions or comments or contribution ideas can be forwarded to the project owners at:
 
-* Database initialization
+* name: Johnnathan Baxter 
+* name: Steve Pesce
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License 
+All source code in the [Serpiente] is available jointly under the MIT License. See LICENSE.md for details.
